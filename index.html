@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101010">
+<meta name="description" content="C.E.O. – Control. Emotion. Ownership. Mentální kouč pro tradery.">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>C.E.O. | Trading Mindset</title>
+<style>
+:root{--bg:#101010;--c:#1c1c1c;--g:#d9b46b;--gl:#f0d49a;--t:#f5f1e8;--m:#aaa49a;--l:#393329}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.55 Arial,sans-serif}
+.app{max-width:720px;margin:auto;padding:20px 15px 100px}
+header{border-bottom:1px solid var(--l);padding:10px 0 22px;margin-bottom:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{border:1px solid var(--g);border-radius:12px;padding:12px 8px;color:var(--gl);font-weight:bold}
+h1{font-size:27px;letter-spacing:3px;color:var(--gl);margin:0}
+.sub{font-size:10px;letter-spacing:1.5px;color:var(--m)}
+.brandline{color:var(--g);font-size:12px}
+.page{display:none}.page.active{display:block}
+.eyebrow{color:var(--g);font-size:11px;letter-spacing:2px;margin-bottom:8px}
+h2{font-size:30px;line-height:1.2;margin:0 0 12px}
+h3{font-size:17px;margin:0 0 10px}
+p{margin:0 0 13px}.muted{color:var(--m)}
+.hero,.card,.stat{background:var(--c);border:1px solid var(--l);border-radius:17px;padding:18px;margin-bottom:14px}
+.hero{background:linear-gradient(140deg,#292319,#191919);border-color:#66512f;padding:23px}
+blockquote{border-left:2px solid var(--g);padding-left:13px;font-size:20px;margin:20px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{margin:0;padding:14px}.number{font-size:26px;color:var(--gl);font-weight:bold}
+.small{font-size:12px;color:var(--m)}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.btn{width:100%;padding:12px;border:1px solid var(--g);border-radius:11px;background:var(--g);color:#17130c;font-weight:bold;margin:7px 0}
+.secondary{background:transparent!important;color:var(--gl)!important}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 16px}
+.choice{background:#252525;color:var(--t);border:1px solid #484138;border-radius:10px;padding:11px;text-align:left}
+.choice.selected{border-color:var(--g);background:#30291c;color:var(--gl)}
+label,.label{display:block;font-size:13px;font-weight:bold;margin:14px 0 7px}
+input,select,textarea{width:100%;padding:11px;background:#111;color:var(--t);border:1px solid #484138;border-radius:10px}
+textarea{min-height:80px;resize:vertical}
+.note,.result{padding:14px;border-left:3px solid var(--g);background:#292319;border-radius:0 10px 10px 0;margin:15px 0}
+.note strong{display:block;color:var(--gl);margin-bottom:5px}
+.result{display:none;background:#1d281f;border-color:#8cb795}
+.result.show{display:block}
+.breath{width:140px;height:140px;border:1px solid var(--g);border-radius:50%;margin:25px auto;display:grid;place-items:center;text-align:center;color:var(--gl);background:#292319;transition:transform 3s}
+.breath.in{transform:scale(1.12)}.breath.out{transform:scale(.9)}
+.entry{padding:14px;border:1px solid var(--l);border-radius:12px;margin:10px 0;background:#151515;overflow-wrap:anywhere}
+.tag{display:inline-block;border:1px solid #66512f;border-radius:20px;padding:3px 8px;color:var(--gl);font-size:11px;margin:3px}
+.footer{text-align:center;border-top:1px solid var(--l);padding-top:20px;margin-top:25px;color:var(--m);font-size:11px}
+.footer strong{color:var(--g);letter-spacing:2px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#101010f5;border-top:1px solid var(--l);padding:7px 2px calc(7px + env(safe-area-inset-bottom))}
+.navin{max-width:720px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.nav button{background:none;border:0;color:var(--m);font-size:10px;padding:6px 0}
+.nav button span{display:block;font-size:18px}
+.nav button.active{color:var(--gl)}
+@media(min-width:550px){.choices{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="brand">
+<div class="logo">C.E.O.</div>
+<div><h1>C.E.O.</h1>
+<div class="sub">TRADING PSYCHOLOGY &amp; SELF-MASTERY</div>
+<div class="brandline">CONTROL. EMOTION. OWNERSHIP.</div></div>
+</div>
+</header>
+
+<main>
+<section class="page active" id="home">
+<div class="hero">
+<div class="eyebrow">TVŮJ PROSTOR. TVOJE ROZHODNUTÍ.</div>
+<h2>Nejdřív řiď sebe.<br>Potom řeš trh.</h2>
+<p class="muted">Trh nemáš pod kontrolou. Svá rozhodnutí, reakce a přípravu ovlivnit můžeš.</p>
+<blockquote id="quote">Tvoje hodnota se nemění podle výsledku jednoho obchodu.</blockquote>
+<button class="btn" data-go="before">Připravit se na obchod</button>
+<button class="btn secondary" data-go="pause">Potřebuji pauzu</button>
+</div>
+<div class="grid">
+<div class="stat"><div class="number" id="total">0</div><div class="small">záznamů v deníku</div></div>
+<div class="stat"><div class="number" id="rate">—</div><div class="small">dodržení plánu</div></div>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>🧠 Jak se právě cítíš?</h3>
+<p class="muted">Pojmenuj svůj stav dřív, než otevřeš obchod.</p>
+<div class="choices" id="moods">
+<button class="choice" data-v="Klid">Klid</button>
+<button class="choice" data-v="Nejistota">Nejistota</button>
+<button class="choice" data-v="Napětí">Napětí</button>
+<button class="choice" data-v="FOMO">FOMO</button>
+<button class="choice" data-v="Frustrace">Frustrace</button>
+<button class="choice" data-v="Euforie">Euforie</button>
+</div>
+<div class="note" id="feedback"><strong>Všímej si svého stavu.</strong>Nemusíš se cítit dokonale. Stačí být k sobě upřímná a rozhodovat se vědomě.</div>
+</div>
+<div class="card"><h3>Co znamená Ownership?</h3><p class="muted">Převzít odpovědnost za vlastní rozhodnutí. Neobviňovat trh, nehonit ztráty a učit se z vlastních vzorců.</p></div>
+</section>
+
+<section class="page" id="before">
+<div class="eyebrow">01 / CONTROL</div>
+<h2>Než klikneš na obchod</h2>
+<p class="muted">Odděl svůj obchodní plán od momentální emoce.</p>
+<div class="card">
+<div class="label">Jak se cítíš?</div>
+<div class="choices" id="bm">
+<button class="choice" data-v="Klid">Klid</button><button class="choice" data-v="Strach">Strach</button>
+<button class="choice" data-v="FOMO">FOMO</button><button class="choice" data-v="Chamtivost">Chamtivost</button>
+<button class="choice" data-v="Frustrace">Frustrace</button><button class="choice" data-v="Napětí">Napětí</button>
+</div>
+<div class="label">Máš jasný plán vstupu a výstupu?</div>
+<div class="choices" id="bp"><button class="choice" data-v="Ano">Ano</button><button class="choice" data-v="Ne">Ne</button></div>
+<div class="label">Znáš své riziko?</div>
+<div class="choices" id="br"><button class="choice" data-v="Ano">Ano</button><button class="choice" data-v="Ne">Ne</button></div>
+<label for="reason">Proč chceš vstoupit?</label>
+<select id="reason">
+<option value="">Vyber odpověď</option>
+<option>Signál odpovídá mému plánu</option>
+<option>Bojím se, že mi pohyb uteče</option>
+<option>Chci dohnat ztrátu</option>
+<option>Chci po výhře ještě vydělat</option>
+<option>Nudím se</option>
+</select>
+<button class="btn" id="check">Zkontrolovat připravenost</button>
+<div class="result" id="brs"><h3 id="bt"></h3><p id="btxt"></p></div>
+</div>
+<div class="note"><strong>Nezapomeň</strong>Nemusíš využít každý pohyb trhu. I vynechat obchod je rozhodnutí.</div>
+</section>
+
+<section class="page" id="pause">
+<div class="eyebrow">02 / EMOTION</div>
+<h2>Teď nemusíš nic řešit.</h2>
+<p class="muted">Když tě ovládá vztek, strach nebo nutkání dohnat ztrátu, dej si prostor.</p>
+<div class="card">
+<h3>Minuta pro sebe</h3>
+<p class="muted">Dýchej přirozeně a bez nucení. Pokud ti soustředění na dech není příjemné, jen se rozhlédni kolem sebe.</p>
+<div class="breath" id="circle"><div><strong id="bw">Zastav se</strong><div class="small" id="bh">Nemusíš spěchat.</div></div></div>
+<p class="muted" id="bs" style="text-align:center">Krátké cvičení trvá 60 sekund.</p>
+<button class="btn" id="start">Začít pauzu</button>
+<button class="btn secondary" id="stop" hidden>Ukončit</button>
+</div>
+<div class="card">
+<h3>Co mě právě žene k dalšímu obchodu?</h3>
+<div class="choices" id="triggers">
+<button class="choice" data-v="Strach ze ztráty">Strach ze ztráty</button>
+<button class="choice" data-v="FOMO">FOMO</button>
+<button class="choice" data-v="Chci dohnat ztrátu">Chci dohnat ztrátu</button>
+<button class="choice" data-v="Euforie">Euforie po výhře</button>
+<button class="choice" data-v="Vztek">Vztek</button>
+<button class="choice" data-v="Únava">Únava</button>
+</div>
+<label for="thought">Co si právě říkám?</label>
+<textarea id="thought" placeholder="Například: Musím to dostat zpátky."></textarea>
+<div class="note"><strong>Zkus jinou otázku</strong>Co bych udělala, kdybych teď nemusela nic dokazovat?</div>
+<button class="btn" id="savePause">Uložit poznámku</button>
+</div>
+</section>
+
+<section class="page" id="after">
+<div class="eyebrow">03 / OWNERSHIP</div>
+<h2>Co mi tento obchod ukázal?</h2>
+<p class="muted">Hodnoť své rozhodnutí, ne svou hodnotu jako člověka.</p>
+<div class="card">
+<label for="outcome">Výsledek obchodu</label>
+<select id="outcome"><option value="">Vyber výsledek</option><option>Profit</option><option>Ztráta</option><option>Nulový výsledek</option><option>Obchod jsem vynechala</option></select>
+<div class="label">Dodržela jsem plán?</div>
+<div class="choices" id="ap">
+<button class="choice" data-v="Ano">Ano</button><button class="choice" data-v="Částečně">Částečně</button><button class="choice" data-v="Ne">Ne</button>
+</div>
+<label for="emotion">Nejsilnější emoce</label>
+<select id="emotion"><option value="">Vyber emoci</option><option>Klid</option><option>Strach</option><option>FOMO</option><option>Chamtivost</option><option>Frustrace</option><option>Euforie</option><option>Nejistota</option></select>
+<label for="learned">Co jsem se naučila?</label>
+<textarea id="learned" placeholder="Co se povedlo? Co bych příště udělala jinak?"></textarea>
+<label for="next">Můj další vědomý krok</label>
+<textarea id="next" placeholder="Například: Po dvou ztrátách končím seanci."></textarea>
+<button class="btn" id="saveTrade">Uložit reflexi</button>
+</div>
+<div class="note"><strong>Zisk není automaticky dobré rozhodnutí.</strong>Ztráta není automaticky špatné rozhodnutí. Důležité je i dodržení plánu a řízení rizika.</div>
+</section>
+
+<section class="page" id="journal">
+<div class="eyebrow">04 / SELF-AWARENESS</div>
+<h2>Můj mentální deník</h2>
+<p class="muted">Sleduj své vzorce bez obviňování. Cílem je vědomější rozhodování.</p>
+<div class="card">
+<h3>Tvůj přehled</h3>
+<p id="insight" class="muted">Zatím tu nejsou žádné záznamy.</p>
+<button class="btn" id="export">Exportovat deník</button>
+<button class="btn secondary" id="clear">Smazat deník</button>
+</div>
+<div class="card"><h3>Moje záznamy</h3><div id="entries"></div></div>
+<div class="card">
+<h3>Můj osobní závazek</h3>
+<label for="commit">Při tradingu se chci učit…</label>
+<textarea id="commit" placeholder="Například: přijímat ztrátu bez nutkání ji dohnat."></textarea>
+<button class="btn" id="saveCommit">Uložit závazek</button>
+<p class="small" id="commitStatus"></p>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<strong>C.E.O.</strong>
+<p>CONTROL. EMOTION. OWNERSHIP.</p>
+<p><i>You are the CEO of your decisions.</i></p>
+<p>Vytvořila Jana Pernicová © 2026</p>
+<p>Tento nástroj slouží k sebereflexi a vzdělávání. Neposkytuje investiční doporučení ani negarantuje výsledky.</p>
+</footer>
+</div>
+
+<nav class="nav"><div class="navin">
+<button class="active" data-go="home"><span>⌂</span>Domů</button>
+<button data-go="before"><span>◎</span>Před obchodem</button>
+<button data-go="pause"><span>Ⅱ</span>Pauza</button>
+<button data-go="after"><span>↗</span>Po obchodě</button>
+<button data-go="journal"><span>▤</span>Deník</button>
+</div></nav>
+
+<script>
+(()=>{
+const KEY="CEO_mindset_2026";
+let d={entries:[],mood:"",commit:""};
+try{d=Object.assign(d,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){alert("Uložení se nezdařilo. Exportuj si důležité záznamy.");return false}}
+function go(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("active",b.dataset.go===id));window.scrollTo(0,0);stats()}
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+function choices(id,fn){$(id).querySelectorAll(".choice").forEach(b=>b.onclick=()=>{ $(id).querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");if(fn)fn(b.dataset.v)})}
+function val(id){let b=$(id).querySelector(".selected");return b?b.dataset.v:""}
+["bm","bp","br","ap","triggers"].forEach(id=>choices(id));
+choices("moods",v=>{
+d.mood=v;save();
+let m={
+"Klid":["Klid je dobrý základ.","I tak si ověř plán a riziko."],
+"Nejistota":["Nemusíš se rozhodnout hned.","Pokud nemáš jasné podmínky, můžeš počkat."],
+"Napětí":["Nejdřív prostor, potom rozhodnutí.","Na chvíli se odpoj od grafu."],
+"FOMO":["Nemusíš chytit každý pohyb.","Neuháněj vstup jen ze strachu, že ti něco uteče."],
+"Frustrace":["Ztrátu nemusíš hned napravovat.","Další obchod nemá být odvetou."],
+"Euforie":["Úspěch není důvod opustit plán.","Po výhře si stejně jako po ztrátě ověř svá pravidla."]
+};
+let x=m[v]||["Všímej si svého stavu.","Pojmenuj emoci a zvaž další krok."];
+$("feedback").innerHTML="<strong>"+esc(x[0])+"</strong>"+esc(x[1]);
+});
+if(d.mood){let b=[...$("moods").querySelectorAll("button")].find(x=>x.dataset.v===d.mood);if(b)b.classList.add("selected")}
+$("check").onclick=()=>{
+let mood=val("bm"),plan=val("bp"),risk=val("br"),reason=$("reason").value;
+let title="Zpomal a ověř si plán",txt="Pokud si nejsi jistá, doplň si informace. Obchod nemusíš otevřít.";
+if(plan==="Ne"||risk==="Ne"){title="Nejdřív si doplň plán";txt="Nemáš potvrzené všechny důležité podmínky. Nejdřív stanov vstup, výstup a přijatelné riziko."}
+else if(["FOMO","Strach","Chamtivost","Frustrace"].includes(mood)||/Bojím|dohnat|výhře|Nudím/.test(reason)){title="Odděl emoci od rozhodnutí";txt="To, co cítíš, je informace, ne příkaz. Dej si pauzu. Pokud tě stále žene nutkání, obchod raději vynech."}
+else if(mood==="Klid"&&plan==="Ano"&&risk==="Ano"&&reason==="Signál odpovídá mému plánu"){title="Máš základ pro vědomé rozhodnutí";txt="Plán i riziko máš zkontrolované. Ani dobrá příprava ale nezaručuje výsledek."}
+$("bt").textContent=title;$("btxt").textContent=txt;$("brs").classList.add("show");
+add({type:"Před obchodem",mood,plan,reason,note:title+": "+txt});
+};
+function add(e){d.entries.unshift({...e,id:Date.now(),date:new Date().toISOString()});d.entries=d.entries.slice(0,300);save();stats()}
+$("savePause").onclick=()=>{
+let trigger=val("triggers"),thought=$("thought").value.trim();
+if(!trigger&&!thought){alert("Vyber emoci nebo napiš poznámku.");return}
+add({type:"Pauza",mood:trigger,note:thought||trigger});$("thought").value="";$("triggers").querySelectorAll("button").forEach(b=>b.classList.remove("selected"));alert("Poznámka je uložená v deníku.");
+};
+$("saveTrade").onclick=()=>{
+let outcome=$("outcome").value,plan=val("ap");
+if(!outcome||!plan){alert("Vyber výsledek a dodržení plánu.");return}
+add({type:"Po obchodě",outcome,plan,mood:$("emotion").value,learned:$("learned").value,next:$("next").value});
+$("outcome").value="";$("emotion").value="";$("learned").value="";$("next").value="";
+$("ap").querySelectorAll("button").forEach(b=>b.classList.remove("selected"));go("journal");alert("Reflexe byla uložena.");
+};
+let timer=null,interval=null,startTime=0;
+function stop(){
+clearTimeout(timer);clearInterval(interval);timer=interval=null;
+$("circle").classList.remove("in","out");$("bw").textContent="Zastav se";$("bh").textContent="Nemusíš spěchat.";
+$("start").hidden=false;$("stop").hidden=true;
+}
+$("start").onclick=()=>{
+stop();startTime=Date.now();$("start").hidden=true;$("stop").hidden=false;
+function tick(){
+let t=Date.now()-startTime;
+if(t>=60000){stop();$("bs").textContent="Hotovo. Nemusíš se hned vracet k trhu.";return}
+let inhale=Math.floor(t%8000/4000)===0;
+$("bw").textContent=inhale?"Nádech":"Výdech";$("bh").textContent="Jemně a přirozeně";
+$("circle").classList.toggle("in",inhale);$("circle").classList.toggle("out",!inhale);
+$("bs").textContent="Tvůj čas pro sebe: "+Math.ceil((60000-t)/1000)+" s";
+}
+tick();interval=setInterval(tick,500);timer=setTimeout(()=>{stop();$("bs").textContent="Hotovo. Všimni si, jak se cítíš."},60000);
+};
+$("stop").onclick=()=>{stop();$("bs").textContent="Cvičení ukončeno. Vrať se k rozhodnutí, až budeš připravená."};
+function stats(){
+let trades=d.entries.filter(e=>e.type==="Po obchodě"),good=trades.filter(e=>e.plan==="Ano"||e.plan==="Částečně").length;
+let r=trades.length?Math.round(good/trades.length*100)+"%":"—";
+$("total").textContent=d.entries.length;$("rate").textContent=r;
+$("insight").textContent=trades.length?"Máš "+trades.length+" reflexí po obchodě. V "+good+" z nich jsi plán dodržela úplně nebo částečně. Sleduj, co ovlivňuje tvá rozhodnutí.":"Až si uložíš reflexe po obchodech, uvidíš, jak často se držíš svého plánu.";
+$("entries").innerHTML=d.entries.length?d.entries.slice(0,60).map(e=>{
+let tags=[e.outcome,e.plan?"Plán: "+e.plan:"",e.mood].filter(Boolean).map(x=>'<span class="tag">'+esc(x)+'</span>').join("");
+let note=[e.note,e.learned?"Co jsem se naučila: "+e.learned:"",e.next?"Další krok: "+e.next:"",e.reason?"Důvod vstupu: "+e.reason:""].filter(Boolean).join("\n\n");
+return '<div class="entry"><strong>'+esc(e.type)+'</strong><div class="small">'+esc(new Date(e.date).toLocaleString("cs-CZ"))+'</div>'+tags+(note?'<p style="white-space:pre-wrap;margin-top:10px">'+esc(note)+'</p>':'')+'</div>'
+}).join(""):'<p class="muted">Deník je zatím prázdný. První záznam nemusí být dlouhý.</p>';
+}
+$("export").onclick=()=>{
+let blob=new Blob([JSON.stringify({app:"C.E.O.",exportedAt:new Date().toISOString(),entries:d.entries,commit:d.commit},null,2)],{type:"application/json"});
+let a=document.createElement("a"),url=URL.createObjectURL(blob);a.href=url;a.download="CEO-denik.json";a.click();URL.revokeObjectURL(url);
+};
+$("clear").onclick=>
+{if(confirm("Opravdu smazat všechny záznamy? Nejdřív si je můžeš exportovat.")){d.entries=[];save();stats()}};
+$("commit").value=d.commit||"";
+$("saveCommit").onclick=()=>{d.commit=$("commit").value.trim();if(save())$("commitStatus").textContent="Závazek je uložený v tomto zařízení."};
+let quotes=["Tvoje hodnota se nemění podle výsledku jednoho obchodu.","Nemusíš využít každý pohyb trhu.","Nejsilnější rozhodnutí někdy znamená neudělat nic.","Drž se svého plánu, ne momentálního impulzu."];
+$("quote").textContent="„"+quotes[Math.floor(Date.now()/86400000)%quotes.length]+"“";
+stats();
+})();
+</script>
+</body>
+  </html>
