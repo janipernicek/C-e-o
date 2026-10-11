@@ -1,0 +1,34 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0b8"/>
+      <stop offset="50%" stop-color="#d6b36a"/>
+      <stop offset="100%" stop-color="#8d6428"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="90" fill="#0b0b0d"/>
+  <rect x="24" y="24" width="464" height="464" rx="72"
+        fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <text x="256" y="245"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="148"
+        font-weight="700"
+        letter-spacing="8"
+        fill="url(#gold)">C.E.O.</text>
+  <path d="M120 290 H392" stroke="url(#gold)" stroke-width="3"/>
+  <text x="256" y="335"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="23"
+        letter-spacing="5"
+        fill="#d6b36a">TRADING MINDSET</text>
+  <text x="256" y="390"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        letter-spacing="3"
+        fill="#b8b1a2">CONTROL YOURSELF</text>
+</svg>
